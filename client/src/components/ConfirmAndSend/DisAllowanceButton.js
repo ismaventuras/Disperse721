@@ -10,7 +10,7 @@ export default function DisAllowanceButton() {
 
     const {library, chainId} = useWeb3React();
     const { nftAddress , nftAllowance, updateAllowance, handleError, SENDER_ADDRESS, handleTransacting, transacting,handleHash} = React.useContext(AppContext);
-    const [disabled, setDisabled] = React.useState()
+    const [disabled, setDisabled] = React.useState(false)
 
     React.useEffect(()=>{
         setDisabled(!nftAllowance);

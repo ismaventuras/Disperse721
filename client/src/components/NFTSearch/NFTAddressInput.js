@@ -3,7 +3,6 @@ import { ethers } from "ethers"
 import { Container, IconButton, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-import INFO from "../../info.json"
 import { getBalanceOf, getNFTData, isApprovedForAll, isERC721 } from "../../utils/ERC721utils";
 import { useWeb3React } from "@web3-react/core";
 import { AppContext } from "../../context/AppContext";
@@ -12,14 +11,14 @@ import { Box } from "@mui/system";
 
 export default function NFTAddressInput() {
     const [value, setValue] = React.useState("");
-    const { account, library } = useWeb3React()
-    const { assignNftData , handleError } = React.useContext(AppContext);
+    const { account, library, chainId } = useWeb3React()
+    const { assignNftData , handleError , SENDER_ADDRESS} = React.useContext(AppContext);
 
     const onClick = async (e) => {
         if (ethers.utils.isAddress(value)) {            
             let isNft = await isERC721(value, library);
             if (isNft) {
-                let senderAddress = INFO.SENDER_ADDRESS.MUMBAI
+                let senderAddress = SENDER_ADDRESS[chainId]
                 let { name, symbol } = await getNFTData(value, library);
                 let nftAddress = value;
                 let userBalance = await getBalanceOf(nftAddress, account, library);
