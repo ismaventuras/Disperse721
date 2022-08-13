@@ -13,7 +13,9 @@
 
 ## Supported chains
 
+<div display="flex" justifyContent="center">
 <img alt="squirtle" src="https://raw.githubusercontent.com/ismaventuras/Disperse721/master/client/public/polygon.png" width=64 height=64/>
+</div>
 
 <img>
 
