@@ -22,8 +22,8 @@ export default function TransactionAlert() {
     }
     
     return (
-        <Snackbar open={open} onClose={onClose} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
-            <Alert severity="success" action={<IconButton onClick={onClose}><CloseIcon /></IconButton>}>
+        <Snackbar open={open} autoHideDuration={30000} onClose={onClose} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
+            <Alert severity="success"  action={<IconButton onClick={onClose}><CloseIcon /></IconButton>}>
                 Your transaction is being processed. Check on <Link href={chainId && `${info.networkInfo[chainId].blockExplorer}tx/${hash}`} target={"_blank"} color={"inherit"}>block explorer</Link>
             </Alert>
         </Snackbar>
