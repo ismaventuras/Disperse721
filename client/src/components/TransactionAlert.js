@@ -25,7 +25,7 @@ export default function TransactionAlert() {
         handleHash("");
     }
     
-    let blockExplorer = `${info.networkInfo[chainId]}tx/${hash}`
+    let blockExplorer = `${info.networkInfo[chainId].blockExplorer}tx/${hash}`
 
     return (
         <Snackbar open={open} autoHideDuration={20000} onClose={onClose} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>

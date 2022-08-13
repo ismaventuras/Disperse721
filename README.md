@@ -28,3 +28,5 @@
 - Multichain
   - Polygon
   - Polygon Mumbai
+- Night/Light theme
+- Open Source
