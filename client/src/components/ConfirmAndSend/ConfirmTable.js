@@ -7,12 +7,17 @@ import DisAllowanceButton from "./DisAllowanceButton";
 import SendTokensButton from "./SendTokensButton";
 
 export default function ConfirmTable() {
-    const {addressRows} = React.useContext(AppContext);
+    const {addressRows, nftAllowance} = React.useContext(AppContext);
 
     return (
             <Grid container sx={{ mb: 2 }} spacing={2}>
-                <Grid item xs={12} align="center">
-                    <Typography align="center" variant="caption">Total: {addressRows.length}</Typography>
+                <Grid item xs={6} align="center">
+                    <Typography  align="center" variant="subtitle2">Total: {addressRows.length}</Typography>                    
+                </Grid>
+                <Grid item xs={6} align="center">
+                    <Typography align="center" variant="subtitle2">Allowance: 
+                        <Typography color={nftAllowance ? 'green' : 'error' } textTransform={"uppercase"} component={"span"} variant={"subtitle2"}> {nftAllowance ? "Allowed" : "Not Allowed"}</Typography>
+                    </Typography>
                 </Grid>
                 <Grid item xs={12} sm={8}>
                     <TableContainer sx={{ maxHeight: "300px" }}>

@@ -7,12 +7,8 @@ import { AppContext } from "../../context/AppContext";
 
 export default function AllowanceButton() {
     const {library,chainId} = useWeb3React();
-    const { SENDER_ADDRESS,nftAddress , nftAllowance, updateAllowance, handleError, handleHash, handleTransacting, transacting} = React.useContext(AppContext);
-    const [disabled, setDisabled] = React.useState()
+    const { SENDER_ADDRESS,nftAddress , updateAllowance, handleError, handleHash, handleTransacting} = React.useContext(AppContext);
 
-    React.useEffect(()=>{
-        setDisabled(nftAllowance);
-    },[nftAllowance])
 
     const onClick = async (e) => {
         try{
@@ -44,9 +40,8 @@ export default function AllowanceButton() {
                     variant="outlined" 
                     onClick={onClick}
                     color={"success"}
-                    disabled={disabled}
                     >
-                    {transacting ? "Loading..." : "Allow tokens"}
+                    Allow tokens
                 </Button>
             </Box>
         </Tooltip>
