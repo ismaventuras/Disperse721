@@ -25,12 +25,10 @@ export default function TransactionAlert() {
         handleHash("");
     }
     
-    let blockExplorer = `${info.networkInfo[chainId].blockExplorer}tx/${hash}`
-
     return (
         <Snackbar open={open} autoHideDuration={20000} onClose={onClose} anchorOrigin={{ vertical: "bottom", horizontal: "center" }}>
             <Alert severity="success" action={<IconButton onClick={onClose}><CloseIcon /></IconButton>}>
-                Check your transaction on <Link href={blockExplorer} target={"_blank"} color={"inherit"}>block explorer</Link>
+                Check your transaction on <Link href={`${info.networkInfo[chainId].blockExplorer}tx/${hash}`} target={"_blank"} color={"inherit"}>block explorer</Link>
             </Alert>
         </Snackbar>
     )

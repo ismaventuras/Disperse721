@@ -41,6 +41,7 @@ export default function NFTAddressInput() {
         <Box sx={{display:'flex',justifyContent:"center"}}>        
                 <TextField                       
                     type="text"
+                    autoComplete="off"
                     color="secondary"
                     name="nftAddress"
                     placeholder=""
