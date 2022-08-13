@@ -1,0 +1,25 @@
+{
+  "homepage": "https://ismaventuras.github.io/Disperse721",
+  "name": "disperse721",
+  "version": "1.0.0",
+  "description": "A ERC721 airdrop/multisender",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "cd client && npm run build",
+    "deploy": "cd client && gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "erc721",
+    "nft",
+    "airdrop",
+    "solidity",
+    "ethereum",
+    "react"
+  ],
+  "author": "Ismael Bautista",
+  "license": "MIT",
+  "dependencies": {
+    "gh-pages": "^4.0.0"
+  }
+}

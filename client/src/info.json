@@ -1,0 +1,33 @@
+{
+    "SENDER_ADDRESS": {
+        "80001": "0xB261976C4DA39DBb5a028293c6C69276DB3Ced6a",
+        "137": "0xB261976C4DA39DBb5a028293c6C69276DB3Ced6a"
+    },
+    "ALLOWED_CHAINS": [137,80001],
+    "networkInfo" : {
+        "1": {
+            "name": "ethereum",
+            "blockExplorer": "https://etherscan.io/",
+            "chainIdInHex": 1,
+            "symbol": "ETH",
+            "logo": "./ethereum-eth-logo.png",
+            "testnet": false
+        },
+        "137": {
+            "name": "polygon",
+            "blockExplorer": "https://polygonscan.com/",
+            "chainIdInHex": 89,
+            "symbol": "MATIC",
+            "logo": "./polygon.png",
+            "testnet": false
+        },
+        "80001": {
+            "name": "polygon mumbai",
+            "blockExplorer": "https://mumbai.polygonscan.com/",
+            "chainIdInHex": 13881,
+            "symbol": "MATIC",
+            "logo": "./polygon.png",
+            "testnet": true
+        }
+    }
+}
