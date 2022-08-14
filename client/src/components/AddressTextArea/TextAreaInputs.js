@@ -17,8 +17,10 @@ export default function TextAreaInput() {
 
         let rows = [];
         for (let element of e.target.value.split("\n")) {
+            //console.log(element)
             if (element !== "") { // get all lines                
-                let addressAndValue = element.split(/[\s,;.]+/g) // split each line by a delimiter
+                let addressAndValue = element.trim().split(/[\s,;.]+/g)// split each line by a delimiter
+                console.log(addressAndValue)
                 if (addressAndValue.length === 2 && ethers.utils.isAddress(addressAndValue[0]) && addressAndValue[1] !== "" && !isNaN(Number(addressAndValue[1]))) {
                     let item = { address: addressAndValue[0], tokenId: Number(addressAndValue[1]) }
                     rows.push(item);
