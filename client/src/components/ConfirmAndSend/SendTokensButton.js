@@ -1,7 +1,6 @@
 import React from "react";
 import { ethers } from "ethers";
 import ERC721Sender from "../../abi/ERC721Sender.json"
-// import INFO from "../info.json"
 import { Button,  } from "@mui/material";
 import { useWeb3React } from "@web3-react/core";
 import { AppContext } from "../../context/AppContext";
@@ -9,8 +8,12 @@ import { AppContext } from "../../context/AppContext";
 export default function SendTokensButton( ) {
     
     const {library, chainId} = useWeb3React();
-    const { nftAddress , addressRows, handleError, handleTransacting, SENDER_ADDRESS} = React.useContext(AppContext);
+    const { nftAddress , addressRows, handleError, handleTransacting, SENDER_ADDRESS,nftAllowance} = React.useContext(AppContext);
+    const [disabled, setDisabled] = React.useState(null);
 
+    React.useEffect(()=>{
+        setDisabled(!nftAllowance);
+    },[nftAllowance])
 
 
     const onClick = async (e) => {
@@ -43,7 +46,7 @@ export default function SendTokensButton( ) {
     }
 
     return (
-        <Button size="large" variant="outlined" color="secondary" onClick={onClick}>
+        <Button size="large" variant="outlined" color="secondary" onClick={onClick} disabled={disabled}>
             send tokens
         </Button>
     )

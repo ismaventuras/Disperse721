@@ -9,9 +9,13 @@ import { Box } from "@mui/system";
 export default function DisAllowanceButton() {
 
     const {library, chainId} = useWeb3React();
-    const { nftAddress , updateAllowance, handleError, SENDER_ADDRESS, handleTransacting,handleHash} = React.useContext(AppContext);
+    const { nftAddress ,nftAllowance, updateAllowance, handleError, SENDER_ADDRESS, handleTransacting,handleHash} = React.useContext(AppContext);
 
+    const [disabled, setDisabled] = React.useState(null);
 
+    React.useEffect(()=>{
+        setDisabled(!nftAllowance); // allowance true = disabled false
+    },[nftAllowance])
 
     const onClick = async (e) => {        
         //create a new nft contract instance
@@ -46,6 +50,7 @@ export default function DisAllowanceButton() {
                     variant="outlined" 
                     color="error"
                     onClick={onClick}
+                    disabled={disabled}
                     >
                     Remove allowance
                 </Button>
