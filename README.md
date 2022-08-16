@@ -14,7 +14,9 @@
 ## Supported chains
 
 <div align='center'>
-<img alt="squirtle" src="https://raw.githubusercontent.com/ismaventuras/Disperse721/master/client/public/polygon.png" width=64 height=64/>
+<img alt="polygon" src="https://raw.githubusercontent.com/ismaventuras/Disperse721/master/client/public/polygon.png" width=64 height=64/>
+<img alt="moonriver" src="https://raw.githubusercontent.com/ismaventuras/Disperse721/master/client/public/moonriver.png" width=64 height=64/>
+<img alt="moonbase" src="https://raw.githubusercontent.com/ismaventuras/Disperse721/master/client/public/moonbase.png" width=64 height=64/>
 </div>
 
 <img>

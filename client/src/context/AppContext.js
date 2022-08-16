@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import info from "../info.json";
+//import info from "../info.json";
 
 export const AppContext = createContext({});
 
@@ -22,7 +22,8 @@ export default function AppContextProvider({children}){
 
     const handleError = (errorMessage="") => setError(errorMessage);
 
-    const SENDER_ADDRESS = info.SENDER_ADDRESS
+    // address is the same and all chains
+    const SENDER_ADDRESS = "0xB261976C4DA39DBb5a028293c6C69276DB3Ced6a"
 
     const handleAddressRows = (listOfObjects) => setAddressRows(listOfObjects);
 

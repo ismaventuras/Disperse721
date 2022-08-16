@@ -8,7 +8,7 @@ import { Box } from "@mui/system";
 
 export default function DisAllowanceButton() {
 
-    const {library, chainId} = useWeb3React();
+    const {library} = useWeb3React();
     const { nftAddress ,nftAllowance, updateAllowance, handleError, SENDER_ADDRESS, handleTransacting,handleHash} = React.useContext(AppContext);
 
     const [disabled, setDisabled] = React.useState(null);
@@ -23,7 +23,7 @@ export default function DisAllowanceButton() {
         try{
             // send the tx
             handleTransacting(true);
-            let tx = await contract.setApprovalForAll(SENDER_ADDRESS[chainId], false);
+            let tx = await contract.setApprovalForAll(SENDER_ADDRESS, false);
             handleHash(tx.hash);
             // process the receipt
             let receipt = await tx.wait();

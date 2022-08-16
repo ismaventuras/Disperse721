@@ -11,18 +11,17 @@ import { Box } from "@mui/system";
 
 export default function NFTAddressInput() {
     const [value, setValue] = React.useState("");
-    const { account, library, chainId } = useWeb3React()
+    const { account, library } = useWeb3React()
     const { assignNftData , handleError , SENDER_ADDRESS} = React.useContext(AppContext);
 
     const onClick = async (e) => {
         if (ethers.utils.isAddress(value)) {            
             let isNft = await isERC721(value, library);
             if (isNft) {
-                let senderAddress = SENDER_ADDRESS[chainId]
                 let { name, symbol } = await getNFTData(value, library);
                 let nftAddress = value;
                 let userBalance = await getBalanceOf(nftAddress, account, library);
-                let allowance = await isApprovedForAll(nftAddress, account, senderAddress, library);
+                let allowance = await isApprovedForAll(nftAddress, account, SENDER_ADDRESS, library);
                 assignNftData(value, name, symbol, userBalance, allowance);
             }
             else {

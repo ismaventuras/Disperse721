@@ -6,7 +6,7 @@ import { useWeb3React } from "@web3-react/core";
 import { AppContext } from "../../context/AppContext";
 
 export default function AllowanceButton() {
-    const {library,chainId} = useWeb3React();
+    const {library} = useWeb3React();
     const { SENDER_ADDRESS,nftAddress , updateAllowance, handleError, handleHash, handleTransacting, nftAllowance} = React.useContext(AppContext);
 
     const [disabled, setDisabled] = React.useState(null);
@@ -21,7 +21,7 @@ export default function AllowanceButton() {
             const contract = new ethers.Contract(nftAddress, ERC721, library.getSigner());        
             // send the tx
             handleTransacting(true);
-            let tx = await contract.setApprovalForAll(SENDER_ADDRESS[chainId], true);            
+            let tx = await contract.setApprovalForAll(SENDER_ADDRESS, true);            
             handleHash(tx.hash);
             // process the receipt
             let receipt = await tx.wait();

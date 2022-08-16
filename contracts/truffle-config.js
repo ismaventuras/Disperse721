@@ -4,6 +4,8 @@ const {privateKey, privateKeyDev, RPC, etherscanApis} = require('./secrets.json'
 //let privateKey = fs.readFileSync("./.secret").toString().trim();
 let providerMumbai = new HDWalletProvider(privateKey, RPC.MUMBAI);
 let providerPolygon = new HDWalletProvider(privateKey, RPC.POLYGON);
+let providerMoonbase = new HDWalletProvider(privateKey, RPC.MOONBASE);
+let providerMoonriver = new HDWalletProvider(privateKey, RPC.MOONRIVER);
 
 module.exports = {
 
@@ -27,7 +29,24 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true,
       gasPrice: 32000000000
-    }
+    },
+    moonbase: {
+      provider: providerMoonbase,
+      network_id: 1287,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      gasPrice: 1000000000
+    },
+    moonriver: {
+      provider: providerMoonriver,
+      network_id: 1285,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+      gasPrice: 1000000000
+    },
+
   },
 
   // Set default mocha options here, use special reporters etc.
@@ -53,6 +72,7 @@ module.exports = {
   plugins: ['truffle-plugin-verify'],
   api_keys:{
     polygonscan:etherscanApis.polygonscan,
-    etherscan:etherscanApis.etherscan
+    etherscan:etherscanApis.etherscan,
+    moonscan: etherscanApis.moonscan,          
   }
 };

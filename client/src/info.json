@@ -1,9 +1,5 @@
 {
-    "SENDER_ADDRESS": {
-        "80001": "0xB261976C4DA39DBb5a028293c6C69276DB3Ced6a",
-        "137": "0xB261976C4DA39DBb5a028293c6C69276DB3Ced6a"
-    },
-    "ALLOWED_CHAINS": [137,80001],
+    "ALLOWED_CHAINS": [137,80001,1285,1287],
     "networkInfo" : {
         "1": {
             "name": "ethereum",
@@ -19,6 +15,22 @@
             "chainIdInHex": 89,
             "symbol": "MATIC",
             "logo": "./polygon.png",
+            "testnet": false
+        },
+        "1285": {
+            "name": "moonriver",
+            "blockExplorer": "https://moonriver.moonscan.io/",
+            "chainIdInHex": 505,
+            "symbol": "MOVR",
+            "logo": "./moonriver.png",
+            "testnet": false
+        },
+        "1287": {
+            "name": "moonbase alpha",
+            "blockExplorer": "https://moonbase.moonscan.io/",
+            "chainIdInHex": 507,
+            "symbol": "DEV",
+            "logo": "./moonbase.png",
             "testnet": false
         },
         "80001": {

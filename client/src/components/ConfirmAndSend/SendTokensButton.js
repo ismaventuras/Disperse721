@@ -7,7 +7,7 @@ import { AppContext } from "../../context/AppContext";
 
 export default function SendTokensButton( ) {
     
-    const {library, chainId} = useWeb3React();
+    const {library} = useWeb3React();
     const { nftAddress , addressRows, handleError, handleTransacting, SENDER_ADDRESS,nftAllowance} = React.useContext(AppContext);
     const [disabled, setDisabled] = React.useState(null);
 
@@ -25,7 +25,7 @@ export default function SendTokensButton( ) {
             tokenIdList.push(item.tokenId);
         }
         try {
-            const contract = new ethers.Contract(SENDER_ADDRESS[chainId], ERC721Sender, library.getSigner());
+            const contract = new ethers.Contract(SENDER_ADDRESS, ERC721Sender, library.getSigner());
             handleTransacting(true);
             let tx = await contract.sendERC721(nftAddress, addressList, tokenIdList);
             console.log(tx);
